@@ -1,6 +1,9 @@
 <?import com.comp2042.GameOverPanel?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.layout.*?>
@@ -8,14 +11,38 @@
 <?import java.net.URL?>
 <Pane fx:controller="com.comp2042.GuiController"
       xmlns:fx="http://javafx.com/fxml">
-    <GridPane fx:id="brickPanel" vgap="1" hgap="1"/>
-    <BorderPane styleClass="gameBoard" fx:id="gameBoard">
+    <!-- Menu Bar at the top -->
+    <MenuBar layoutX="0" layoutY="0" prefHeight="25" prefWidth="800">
+        <Menu text="Game Mode">
+            <MenuItem fx:id="classicModeMenuItem" text="Classic Mode" />
+            <MenuItem fx:id="challengeModeMenuItem" text="Challenge Mode" />
+            <MenuItem fx:id="relaxModeMenuItem" text="Relax Mode" />
+        </Menu>
+    </MenuBar>
+    
+    <GridPane fx:id="brickPanel" vgap="1" hgap="1" layoutY="30"/>
+    <BorderPane styleClass="gameBoard" fx:id="gameBoard" layoutY="42">
         <center>
-            <GridPane fx:id="gamePanel" hgap="1" vgap="1" layoutY="30" layoutX="40"/>
+            <GridPane fx:id="gamePanel" hgap="1" vgap="1" layoutY="5" layoutX="40"/>
         </center>
     </BorderPane>
 
-    <Group fx:id="groupNotification" layoutX="14" layoutY="203">
+    <!-- Information display on the right side -->
+    <VBox layoutX="600" layoutY="80" spacing="10">
+        <Label fx:id="scoreLabel" text="Score: 0" styleClass="scoreClass" 
+               prefWidth="200" prefHeight="50"/>
+        <Label fx:id="levelLabel" text="Level: 1" styleClass="scoreClass" 
+               prefWidth="200" prefHeight="50"/>
+        <Label fx:id="speedLabel" text="Speed: 100%" styleClass="scoreClass" 
+               prefWidth="200" prefHeight="50"/>
+    </VBox>
+
+    <!-- Pause message -->
+    <Label fx:id="pauseLabel" text="PAUSED" styleClass="gameOverStyle" 
+           alignment="CENTER" layoutX="150" layoutY="250" prefWidth="500" prefHeight="100" 
+           visible="false" />
+
+    <Group fx:id="groupNotification" layoutX="14" layoutY="253">
         <VBox alignment="CENTER">
             <GameOverPanel fx:id="gameOverPanel"/>
         </VBox>

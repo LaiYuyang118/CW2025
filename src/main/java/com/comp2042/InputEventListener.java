@@ -11,4 +11,7 @@ public interface InputEventListener {
     ViewData onRotateEvent(MoveEvent event);
 
     void createNewGame();
+    
+    // Add method to handle drop to bottom
+    DownData onDropToBottomEvent(MoveEvent event);
 }
