@@ -1,7 +1,7 @@
 # Tetris Game Course Project
 
 ## GitHub Repository
-https://github.com/your-username/CW2025-master
+https://github.com/LaiYuyang118/CW2025
 
 ## Compilation Instructions
 1. Ensure Java JDK 8 or higher is installed
